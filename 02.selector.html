@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="myClass">123</div>
+    <div class="myClass">456</div>
+    <div class="myClass1">789</div>
+
+    <div id="info">abc</div>
+    <div id="info">def</div>
+
+    <script>
+        // 只會抓到第一個符合的物件
+        let myclass = document.querySelector('.myClass')
+
+        // 抓全部符合的物件，並以群組方式呈現
+        let myclass2 = document.querySelectorAll('.myClass')
+
+        console.log(myclass);
+        console.log(myclass2[0]);
+        
+
+
+    </script>
+</body>
+</html>

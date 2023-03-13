@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="a" onchange="calc()"> +
+    <input type="number" id="b" onchange="calc()"> =
+    <span id="c"> </span>
+
+    <script src="./js/jquery-3.6.3.min.js"></script>
+
+    <script>
+        let a = $('#a')
+        let b = $('#b')
+        let c = $('#c')
+
+        function calc(){
+            let v = parseInt(a.val()) + parseInt(b.val())
+            // let v = +a.val() + +b.val() 字串前面加上'+' 也會變成數字
+
+            console.log(v)
+            c.html(v)
+             
+        }
+    </script>
+</body>
+</html>
