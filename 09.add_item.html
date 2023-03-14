@@ -42,33 +42,85 @@
         </div>
       </div>
     </div>
+
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Launch demo modal
+    </button> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">刪除物件</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            是否要刪除
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="close_btn" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+            <button type="button" id="confirm_btn" class="btn btn-primary" onclick="delet(event)">確定</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- <script src="./js/jquery-3.6.3.min.js"></script> -->
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       const myInput = document.querySelector('#myInput');
       const myContent = document.querySelector('#myContent');
+      const select = document.querySelector('select')
 
       function addItem() {
+        let inputValue =  myInput.value
+        let content_red = `<div class="alert alert-danger" role="alert">
+                ${inputValue}
+                <button type="button" class="btn-close delet" onclick="delet(event)" aria-label="Close" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+              </div>`
+
+        let content_yellow = `<div class="alert alert-warning" role="alert">
+          ${inputValue}
+          <button type="button" class="btn-close delet" onclick="delet(event)" aria-label="Close" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+        </div>`
+
+        let content_green = `<div class="alert alert-success" role="alert">
+                ${inputValue}
+                <button type="button" class="btn-close delet" onclick="delet(event)" aria-label="Close" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+              </div>`
+
         if(! myInput.value){
             alert('未輸入內容')
             return;
         }
 
-        let inputValue =  myInput.value
-        let content = `<div class="alert alert-primary" role="alert">
-                ${inputValue}
-                <button type="button" class="btn-close delet" onclick="delet(event)" aria-label="Close"></button>
-              </div>`
-        myContent.innerHTML += content
+        if(select.value == 'red'){
+          myContent.innerHTML += content_red
+        }else if(select.value == 'yellow'){
+          myContent.innerHTML += content_yellow
+        }else{
+          myContent.innerHTML += content_green
+        }
+
       }
 
+      function confirm(e){
+        
+      }
+
+      
+
       function delet(e){
-        console.log(1111);
+
+        // console.log(1111);
         let target = event.target
         let item = target.parentElement
-        console.log(event.target);
+
+        // console.log(event.target);
         target.parentElement.parentElement.removeChild(item)
+
         // $(e.target).parent().remove()
         
       }
