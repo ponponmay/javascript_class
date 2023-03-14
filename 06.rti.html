@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="inputAge" oninput="func()">
+    <div id="infoAge"></div>
+
+
+    <script>
+        let inputAge = document.querySelector('#inputAge')
+        function func(){
+            let infoAge =  inputAge.value
+            console.log(infoAge>=18? '成年':'未成年')
+            document.querySelector('#infoAge').innerHTML = infoAge>=18? '成年':'未成年' 
+        }
+
+
+    </script>
+</body>
+</html>

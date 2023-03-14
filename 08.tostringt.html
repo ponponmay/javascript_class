@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    16進為字串 轉 數值
+    <input type="text" id="inputAge1" oninput="func()">
+    <div id="info1">parseInt</div>
+    <hr>
+    數值 轉 16進為字串
+    <input type="text" id="inputAge2" oninput="func()">
+    <div id="info2">parseInt</div>
+    
+
+
+
+    <script>
+        let inputAge1 = document.querySelector('#inputAge1')
+        let inputAge2 = document.querySelector('#inputAge2')
+
+        function func(){
+            let infoAge1 =  inputAge1.value
+            let infoAge2 =  inputAge2.value
+
+            document.querySelector('#info1').innerHTML = parseInt(infoAge1,16) 
+            // 把抓到的字串，以16進位方式，顯示成10進位數字
+
+            const i2 = +infoAge2
+            document.querySelector('#info2').innerHTML = i2.toString(16)
+            // 把抓到的字串，先轉成10進位數字，再轉成16進位方式呈現的字串
+        }
+
+
+    </script>
+</body>
+</html>
