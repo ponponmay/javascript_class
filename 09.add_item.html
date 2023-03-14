@@ -16,14 +16,14 @@
         <div class="col">
           <form>
             <div class="mb-3">
-              <input type="text" class="form-control" id="myInput" />
+              <input type="text" class="form-control " id="myInput" />
             </div>
-            <select name="" id="">
-                <option value="red" class=" bg-danger">緊急</option>
+            <select name="" id="" class=" bg-danger fw-bold" onchange="changeColor()">
+                <option value="red" class=" bg-danger">紅色</option>
                 <!--紅色 alert-danger -->
-                <option value="yellow" class="bg-warning">重要</option>
+                <option value="yellow" class="bg-warning">黃色</option>
                 <!--黃色 alert-warning -->
-                <option value="green" class="bg-success">普通</option> 
+                <option value="green" class="bg-success">綠色</option> 
                 <!--綠色 alert-success -->
 
             </select>
@@ -43,10 +43,6 @@
       </div>
     </div>
 
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button> -->
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,7 +57,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" id="close_btn" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-            <button type="button" id="confirm_btn" class="btn btn-primary" onclick="delet(event)">確定</button>
+            <button type="button" id="confirm_btn" class="btn btn-primary" onclick="confirm()" data-bs-dismiss="modal">確定</button>
           </div>
         </div>
       </div>
@@ -72,7 +68,33 @@
     <script>
       const myInput = document.querySelector('#myInput');
       const myContent = document.querySelector('#myContent');
-      const select = document.querySelector('select')
+      const select = document.querySelector('select');
+      const modalBody = document.querySelector('.modal-body');
+      let currentSelectClass = 'bg-danger'
+      
+
+      function changeColor(){
+        if(select.value == 'red'){
+          select.classList.remove(currentSelectClass)
+          select.classList.add('bg-danger')
+          currentSelectClass = 'bg-danger'
+
+        }else if(select.value == 'yellow'){
+          select.classList.remove(currentSelectClass)
+          select.classList.add('bg-warning')
+          currentSelectClass = 'bg-warning'
+
+        }else{
+          select.classList.remove(currentSelectClass)
+          select.classList.add('bg-success')
+          currentSelectClass = 'bg-success'
+        }
+      }
+
+    
+
+      
+
 
       function addItem() {
         let inputValue =  myInput.value
@@ -104,26 +126,29 @@
           myContent.innerHTML += content_green
         }
 
-      }
+        myInput.value = ''
 
-      function confirm(e){
-        
       }
 
       
 
+      let item = null
+      let target = null
+      
       function delet(e){
-
-        // console.log(1111);
-        let target = event.target
-        let item = target.parentElement
-
+        target = event.target
+        item = target.parentElement
+        let currentText = item.textContent
+        modalBody.textContent = `是否刪除「${currentText}」`
         // console.log(event.target);
-        target.parentElement.parentElement.removeChild(item)
-
         // $(e.target).parent().remove()
-        
       }
+
+      function confirm(e){
+        // item.parentElement.removeChild(item)
+        item.parentNode.removeChild(item)
+              }
+      
     </script>
   </body>
 </html>
