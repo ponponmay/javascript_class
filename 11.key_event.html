@@ -1,0 +1,35 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+            <div class="mb-3">
+              <input type="text" class="form-control " id="myInput" onkeydown="handler(event)" onkeypress="handler(event)" onkeyup="handler(event)"/>
+            </div>
+        </div>
+      </div>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function handler(event){
+            console.log(event.key , event.type)
+
+            // keypress 只有按文字鍵會觸發，功能鍵(shift alt等)不會觸發
+            // 一般偵測會以keyup為主，不會因為長按，就重複觸發
+
+        }
+    </script>
+  </body>
+</html>

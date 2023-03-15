@@ -44,26 +44,7 @@
     </div>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">刪除物件</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            是否要刪除
-          </div>
-          <div class="modal-footer">
-            <button type="button" id="close_btn" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-            <button type="button" id="confirm_btn" class="btn btn-primary" onclick="confirm()" data-bs-dismiss="modal">確定</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <script src="./js/jquery-3.6.3.min.js"></script> -->
-   
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       const myInput = document.querySelector('#myInput');
@@ -131,24 +112,22 @@
       }
 
       
-
-      let item = null
-      let target = null
       
-      function delet(e){
-        target = event.target
-        item = target.parentElement
-        let currentText = item.textContent
-        modalBody.textContent = `是否刪除「${currentText}」`
-        // console.log(event.target);
-        // $(e.target).parent().remove()
+      
+      
+      function delet(event){
+        let target = event.target
+        let item = target.parentElement
+       
+
+        if(confirm(`是否刪除「${item.innerText}」`)){
+            item.remove()
+        }
+        
       }
 
       // 可以直接用功能confirm('通知顯示內容')，結果會是布林值
-      function confirm(e){
-        // item.parentElement.removeChild(item)
-        item.parentNode.removeChild(item)
-              }
+   
       
     </script>
   </body>

@@ -1,0 +1,77 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    
+    <style>
+        .rect {
+          position: relative;
+          width: 800px;
+          height: 500px;
+          background-color: #d8eff7;
+          border: 1px solid gray;
+        }
+  
+        .ball {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: #ee6d31;
+          text-align: center;
+          line-height: 30px;
+          font-family: Arial, Helvetica, sans-serif;
+          color: rgb(58, 93, 117);
+          font-weight: 800;
+          border: 1px solid gray;
+        }
+  
+      </style>
+  </head>
+  <body>
+    <div class="rect" id="rect">
+    </div>
+    <p></p>
+  
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const rect = document.querySelector('#rect')
+        const p = document.querySelector('p')
+       
+        let html = "" ; 
+         
+        
+        for(let i = 0 ,n=1; i<16 ;i++){
+            
+            for(let k = 0 ; k<16 ;k++ , n++){
+                let color = (i*17)*256*256 + (k*17)*256
+
+                let colorStr = color.toString(16)
+                let colorStrText =`#${colorStr.padStart(6, '0')}`
+
+                html += `<div class="ball" 
+                data-color="${colorStrText}" 
+                style="left:${k*30}px; top: ${i*30}px; background-color: rgb(${i*17}, ${k*17}, 0);" 
+                onclick="show(event)"></div>`
+            }
+             
+            
+        }
+
+        function show(event){
+            let text = event.target.getAttribute('data-color')
+            p.innerText = text
+
+
+        }
+        rect.innerHTML = html
+    </script>
+  </body>
+</html>
