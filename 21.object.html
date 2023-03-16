@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="info"></div>
+
     <script>
+        const info = document.querySelector('#info')
         let obj = {
             name : 'may',
             age : '5',
@@ -18,6 +21,19 @@
         obj.color = 'red';
         obj['age'] = '16';
         
+        // 有幾個屬性，迴圈就跑幾次
+        for(let s in obj){
+            info.innerHTML += `${s} / ${obj[s]} <br>`
+        }
+        
+        // name / kate
+        // age / 16
+        // color / red
+
+        //in單獨使用時，用來判斷物件內是否包含某屬性(t/f)
+        info.innerHTML += `${'name' in obj} <br>` //true
+        info.innerHTML += `${'red' in obj} <br>` //false
+
     </script>
 </body>
 </html>

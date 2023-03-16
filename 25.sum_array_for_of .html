@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="info"></div>
+    <pre id="info"></pre>
+    <!-- pre標籤是可以保留多個空白鍵跟換行，排版不會跑掉 -->
+
+    <script>
+        const info = document.querySelector('#info')
+        const pre = document.querySelector('pre')
+        const ar = [
+            {
+            name: "中衛醫療口罩",
+            price: 300,
+            quantity: 1,
+            image: "item-1.jpg",
+            },
+            {
+            name: "勤達醫療口罩",
+            price: 88,
+            quantity: 2,
+            image: "item-2.jpg",
+            },
+            {
+            name: "安馨醫用口罩",
+            price: 229,
+            quantity: 1,
+            image: "item-3.jpg",
+            },
+            {
+            name: "藍歐兒醫用口罩",
+            price: 149,
+            quantity: 3,
+            image: "item-4.jpg",
+            },
+        ];
+        let sum = null;
+        for (let v of ar){
+            console.log(typeof v.price)
+            info.innerHTML += `${v.price}  <br>`
+            sum += v.price
+        }
+        info.innerHTML += `總價 ${sum}  <br>`
+        // 300
+        // 88
+        // 229
+        // 149
+        // 總價 766
+
+
+
+
+        for (let v of ar){
+            info.innerHTML += `${v} : ${typeof v} <br>`
+        }
+        // [object Object] : object
+        // [object Object] : object
+        // [object Object] : object
+        // [object Object] : object
+
+
+        
+
+       
+    
+
+     
+
+    </script>
+</body>
+</html>

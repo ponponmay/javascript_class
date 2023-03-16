@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="info"></div>
+    <pre id="info"></pre>
+    <!-- pre標籤是可以保留多個空白鍵跟換行，排版不會跑掉 -->
+
+    <script>
+        const info = document.querySelector('#info')
+        const pre = document.querySelector('pre')
+
+        const arr =[1,"hi",3,{name:'may'}] 
+
+        for (let v of arr){
+            info.innerHTML += `${v} : ${typeof v} <br>`
+        }
+        //1 : number
+        // hi : string
+        // 3 : number
+        // [object Object] : object
+        //for/of 跑出來會是 字串 數值 布林值 ，如不是會自動轉換字串 ex(object object)
+
+
+        pre.innerHTML += JSON.stringify(arr , null , 4) + '<br>'; 
+        // json格式可以連object都印出來
+        // stringify(arr , null , 4)參數代表，印出arr 並且要自動縮排4個空白鍵
+        // [
+        //     1,
+        //     "hi",
+        //     3,
+        //     {
+        //         "name": "may"
+        //     }
+        // ]
+        
+
+       
+    
+
+     
+
+    </script>
+</body>
+</html>

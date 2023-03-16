@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+  </head>
+  <body>
+    <pre id="info2"></pre>
+
+    <script>
+      const obj1 = {
+        name: 'John',
+        age: 26,
+        gender: 'male'
+      };
+
+      const {name, age} = obj1;
+      // 設定兩個變數，而且必須和obj1裡面的key一樣
+      const {name: myName} = obj1;
+      // {key : 變數} 設定一個新變數myName，值是obj1 name的值"john""
+      console.log({myName});
+      // {myName: 'John'}
+      console.log(myName);
+      // John
+
+
+      const ar1 = [3, 6, 'hello', 12];
+      const [a, b, c] = ar1;
+      // 設定三個新的變數，並且值是ar1的前三個值
+
+      console.log({a, b, c}); // 合併成物件
+      // 將三個變數當作key，他們的值當作value ，做成一個新的object
+      // {
+      //     "a": 3,
+      //     "b": 6,
+      //     "c": "hello"
+      // }
+
+      info2.innerHTML  += JSON.stringify({a, b, c}, null, 4);
+      // { a: a, b: b, c: c}舊的合併方式
+
+
+      info2.innerHTML  += '\n';
+      // 換行
+
+
+      console.log([name, age, c]); // 合併成陣列
+      // 將剛剛新設定的三個變數的值，抓出來做成一個陣列
+      // [
+      //     "John",
+      //     26,
+      //     "hello"
+      // ]
+      info2.innerHTML  += JSON.stringify([name, age, c], null, 4);
+
+      
+
+
+    </script>
+  </body>
+</html>

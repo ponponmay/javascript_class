@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script>
+        const info = document.querySelector('#info')
+        const obj1 = {
+            name:{first : 'may' ,
+                    last: 'peng'},
+            age : '5',
+        }
+
+        const obj2 = obj1 //參照，obj1改了 obj2也會跟著改
+        const obj3 = {...obj1}
+        //淺層複製，...代表複製並且展開，必須用{}包起來，只能複製字串 數值 布林值，複製以後就跟obj1沒有關係了
+        const obj4 = structuredClone(obj1)
+        //深層複製 即便obj1內有非字串 數值 布林值的物件，也能全部複製
+
+
+        obj1.name.first = 'kate'
+        obj1.age = '16'
+
+        info.innerHTML += `obj2 ${obj2['age']} <br>` //age 16 obj1改了 obj2也跟著變動
+        info.innerHTML += `obj3 ${obj3['age']} <br>` //age 5  保持原本obj1的值
+        
+        info.innerHTML += JSON.stringify(obj2) + '<br>'; //參照obj1 會一模一樣
+        info.innerHTML += JSON.stringify(obj3) + '<br>'; //淺層複製，name因為是object,所以無法複製，name還是參照obj1
+        info.innerHTML += JSON.stringify(obj4) + '<br>'; //深層複製，全部都複製，所以不會被obj1影響
+        
+
+       
+    
+
+     
+
+    </script>
+</body>
+</html>

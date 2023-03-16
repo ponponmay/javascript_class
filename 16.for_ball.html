@@ -59,12 +59,14 @@
             // b.style.display = 'block'
             b.onclick = function(event){
               console.log(event.target);
-              event.targer.style.display = "none"
+              event.target.remove()
+              // event.target.style.display = "none"
+              // 兩種都可以
             }
             // b.addEventListener("click", dis(event)) 
             rect.append(b)//js的append ，是加入element ，不能加html(如果加html 會顯示字串)
         }
-        console.log(b)
+      
         // https://stackoverflow.com/questions/11017509/add-onclick-event-to-document-createelementth
 
         
