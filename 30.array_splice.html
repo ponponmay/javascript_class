@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+  </head>
+  <body>
+    <pre id="info2"></pre>
+
+    <script>
+        const ar1 = [..."abcdefg"]; 
+        let ar2 = [...ar1]
+        let ar3 = ar2.splice(2,3)
+        //從index 2開始 抓三個元素 移除
+
+        info2.innerHTML  += ar1 +'\n\n';
+        info2.innerHTML  += 'ar2.splice(2,3) =='+ ar2 +'\n\n';
+        info2.innerHTML  += ar3 +'\n\n';
+
+        ar2 = [...ar1]
+        ar2.splice(2,0,'bill','kate')
+        //從index2開始 移除0個元素，並從index2之前 ，加入新的元素
+        info2.innerHTML  += 'ar2.splice(2,0,bill,kate) ==' +'\n'+ ar2 +'\n\n';
+        // a,b,bill,kate,c,d,e,f,g
+
+
+        ar2 = [...ar1]
+        ar2.splice(2,2,'bill','kate')
+        //從index2開始 移除2個元素(index2 & index3)，並在index2的位置加入新的元素
+        //所以bill 會是index2
+        info2.innerHTML  += 'ar2.splice(2,2,bill,kate) ==' +'\n'+ ar2 +'\n';
+        // a,b,bill,kate,e,f,g
+        
+      
+        
+      
+      
+      
+      
+      
+
+
+
+
+      
+      
+
+
+     
+
+
+    </script>
+  </body>
+</html>

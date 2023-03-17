@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">編號</th>
+                <th scope="col">書名</th>
+                <th scope="col">作者</th>
+                <th scope="col">價格</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- <tr>
+                    <td></td>
+                </tr> -->
+  
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="./data/products1.js"></script>
+    <!-- 商品資料檔案(陣陣列內包著多筆object) -->
+    <script>
+        const tbody = document.querySelector('#tbody')
+
+        const p2 =products1.map(function(el){
+
+            let {id,author,bookname,price} = el
+            //el 是每一筆資料object
+            // 設定變數，必須是obj的key name，賦予變數相對應的val
+            // return {id,author,bookname,price}
+            //回傳每一筆object
+            return `<tr>
+                        <td>${id}</td>
+                        <td>${bookname}</td>
+                        <td>${author}</td>
+                        <td>${price}</td>
+                    </tr>`
+
+        })
+      
+        tbody.innerHTML = p2.join('') 
+
+      console.log(p2);
+    </script>
+  </body>
+</html>

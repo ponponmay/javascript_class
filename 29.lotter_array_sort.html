@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+  </head>
+  <body>
+    <pre id="info2"></pre>
+
+    <script>
+      const ar1 = []; 
+        for(let i = 1 ; i<=42 ; i++){
+            ar1.push(i) 
+        }
+        info2.innerHTML  += ar1 +'\n';
+
+        ar1.sort(function(){
+            return Math.random()-.5
+            // 生成亂數後，去跟原本的1~42相減，如果是負數就會對調位置
+        })
+      
+        info2.innerHTML  += ar1 +'\n';
+      
+      
+      
+      
+      
+
+
+
+
+      
+      
+
+
+     
+
+
+    </script>
+  </body>
+</html>

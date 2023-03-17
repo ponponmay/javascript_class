@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+  </head>
+  <body>
+    <pre id="info2"></pre>
+
+    <script>
+        const ar1 = [3,6,9,12,15]; 
+
+        let ar2 = ar1.map(function(val){
+            return val*val //回傳對應值
+        })
+        console.log(ar2);
+        info2.innerHTML  += ar2 +"<br>"
+        //9,36,81,144,225
+
+
+        
+        let ar3 = ar1.map(function(val){
+            return val%2 ===0 //回傳布林值
+        })
+        console.log(ar3);
+        info2.innerHTML  += ar3 +"<br>"
+        //false,true,false,true,false
+        
+      
+      
+      
+      
+      
+
+
+
+
+      
+      
+
+
+     
+
+
+    </script>
+  </body>
+</html>
