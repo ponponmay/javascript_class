@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function func(n){
+            if(n===1){return 1};
+            return  n*func(n-1);
+        }
+        console.log(func(3)); //3*2*1
+        console.log(func(5)); //5*4*3*2*1
+
+        // n*func(n-1)
+        // 5*func(5-1)
+        //   4*func(4-1)
+        //     3*func(3-1)
+        //         2*func(2-1)
+        //             1 if(n===1){return 1}
+       
+
+        // --------closure--------------
+        const f = (function(){
+            let n=5;
+            return function(a=1){
+                if(n){
+                    n--;
+                    return n*a;
+                }else{
+                    return 0 ;
+                }
+            };
+
+        })();
+        console.log(f());
+        console.log(f(8));
+
+    </script>
+</body>
+</html>

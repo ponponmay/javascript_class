@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        
+        function func(ar){
+            ar.push('abc');
+            return ar; //要把值回傳出去 才可以給dr
+        }   
+
+        const br = [1,2,3];
+        const dr = func(br); //func(br)回傳的值，設定給dr
+
+        console.log(br); //[1,2,3,'abc']
+        console.log(dr); //[1,2,3,'abc']
+        console.log(br ===dr); //true
+
+        (function(){
+            console.log(123)
+        })()
+        //不用設定變數 立即執行
+        (function(){
+            console.log(456)
+        }())
+        //不用設定變數 立即執行
+    </script>
+</body>
+</html>

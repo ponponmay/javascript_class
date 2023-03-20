@@ -1,0 +1,164 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    
+    <style>
+        .clock {
+          position: relative;
+          width: 600px;
+          height: 600px;
+          border-radius: 50%;
+          background-color: #2a3e5f;
+          border: 1px solid gray;
+        }
+  
+        .hand, .tag-g {
+          position: absolute;
+          left: 300px;
+          top: 300px;
+        }
+        .hand-sec{
+          position: absolute;
+          width: 2px;
+          height: 280px;
+          background-color: #93a9e8;
+          left: -1px;
+          top: -280px;
+        }
+        .hand-m {
+          position: absolute;
+          left: 300px;
+          top: 300px;
+        }
+        .hand-minute{
+          position: absolute;
+          width: 10px;
+          height: 250px;
+          border-radius: 5px;
+          background-color: #ee8b11;
+          left: -5px;
+          top: -245px;
+        }
+        .hand-h {
+          position: absolute;
+          left: 300px;
+          top: 300px;
+        }
+        .hand-hour{
+          position: absolute;
+          width: 16px;
+          height: 200px;
+          border-radius: 8px;
+          background-color: #e46889;
+          left: -8px;
+          top: -192px;
+        }
+        h2{
+            position: absolute;
+        }
+        #deg0{
+            left: 300px;
+            transform: translate(-50%);
+        }
+        #deg90{
+            left: 600px;
+            top: 300px;
+            transform: translate(-100%,-50%);
+        }
+        #deg180{
+            left: 300px;
+            top: 600px;
+            transform: translate(-50%,-100%);
+        }
+        #deg270{
+            left: 0px;
+            top: 300px;
+            transform: translate(0,-50%);
+        }
+        .tag{
+          position: absolute;
+          width: 6px;
+          height: 20px;
+          background-color: #6682bb;
+          left: -3px;
+          top: -300px;
+        }
+
+      </style>
+  </head>
+  <body>
+    <h2 id="info"></h2>
+
+    <div class="clock">
+
+        <div class="hand">
+            <div class="hand-sec"></div>
+        </div>
+        <div class="hand-m">
+            <div class="hand-minute"></div>
+        </div>
+        <div class="hand-h">
+            <div class="hand-hour"></div>
+        </div>
+        <!-- <h2 id="deg0">12</h2>
+        <h2 id="deg90">3</h2>
+        <h2 id="deg180">6</h2>
+        <h2 id="deg270">9</h2> -->
+    </div>
+    <div class="tags">
+
+    </div>
+    <script>
+        const hand = document.querySelector('.hand')
+        const hand_m = document.querySelector('.hand-m')
+        const hand_h = document.querySelector('.hand-h')
+        const clock = document.querySelector('.clock')
+        const tags = document.querySelector('.tags')
+        
+
+        for(let i=0;i<12;i++){
+                tags.innerHTML += `<div class="tag-g" style="transform: rotate(${i*30}deg);">
+                    <div class="tag"></div>
+                </div>`;
+            }
+
+
+        // 因為轉動點設定在中心，如果是讓hand-sec轉動，之後定位會很麻煩，所以外層包一個hand，讓hand轉動
+        
+        function showtime(){
+            
+            let now = new Date()
+            let s = now.getSeconds()
+            let m = now.getMinutes()
+            let h = now.getHours()
+
+
+            info.innerHTML =now.toString().split(' ')[4]//電子鐘顯示
+            hand.style.transform = `rotate(${s*6}deg)`//秒針轉角度
+            hand_m.style.transform = `rotate(${m*6}deg)`//分針轉角度
+            hand_h.style.transform = `rotate(${h*30+m*0.5}deg)`//時針轉角度
+            // console.log(hand);
+
+            setTimeout(showtime,1000)
+        }
+
+        showtime()
+       
+        //    for(let i=0;i<12;i++){
+        //         clock.innerHTML += `<div class="tag-g" style="transform: rotate(${i*30}deg);">
+        //             <div class="tag"></div>
+        //         </div>`;
+        //     }
+
+     
+
+    </script>
+  </body>
+</html>
