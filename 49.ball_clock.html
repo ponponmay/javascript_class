@@ -1,0 +1,67 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    
+    <style>
+        .rect {
+          position: relative;
+          width: 800px;
+          height: 600px;
+          background-color: #d8eff7;
+          border: 1px solid gray;
+        }
+  
+        .ball {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: #ee6d31;
+          text-align: center;
+          line-height: 50px;
+          font-family: Arial, Helvetica, sans-serif;
+          color: rgb(58, 93, 117);
+          font-weight: 800;
+          border: 1px solid gray;
+        }
+  
+      </style>
+  </head>
+  <body>
+    <div class="rect" id="rect">
+        <!-- <div class="ball"></div> -->
+    </div>
+  
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const rect = document.querySelector(".rect");
+  
+        const ballNum = 12; // 圓形的數量
+        const angUnit = Math.PI*2/ballNum; // 單位弧度 一個圓的弧度是是兩個pi
+  
+        for (let i = 0; i < ballNum; i++) {
+          b = document.createElement("div");
+          b.className = "ball";
+          b.innerHTML = i+1;
+          b.style.left = `${400 -25 + Math.cos(angUnit*i-Math.PI/3) * 200}px`;
+          //(圓心位置=寬的一半-球的半徑)+cos角度*半徑 x軸 (要逆時針轉動60度，所以減1/3pi， 一個pi是半圓的弧度)
+
+          b.style.top = `${300 -25 + Math.sin(angUnit*i-Math.PI/3) * 200}px`;
+          //(圓心位置=高的一半-球的半徑)+sin角度*半徑 y軸
+  
+          rect.append(b);
+        
+
+        }
+        
+      </script>
+  </body>
+</html>

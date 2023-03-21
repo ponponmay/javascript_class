@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form onsubmit="saveData(); return false">
+    <input type="text" id="account" placeholder="帳號">
+    <br>
+    <input type="text" id="password" placeholder="密碼">
+    <br>
+    <input type="submit" value="儲存">
+  </form>
+
+
+  <script>
+    const accountEl = document.querySelector('#account');
+    const passwordEl = document.querySelector('#password');
+    let myData = {}
+    let myDataStr = localStorage.getItem('myAccount');
+
+    if(myDataStr){
+      myData = JSON.parse(myDataStr);
+    }
+
+    accountEl.value = myData.account || ''
+    passwordEl.value = myData.password || ''
+
+
+    function saveData(){
+      const account = accountEl.value;
+      const password = passwordEl.value;
+      const data = {account, password};
+
+      localStorage.setItem('myAccount', JSON.stringify(data))
+
+    }
+
+  </script>
+</body>
+</html>

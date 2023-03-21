@@ -97,7 +97,7 @@
     <h2 id="info"></h2>
 
     <div class="clock">
-
+        <div class="tags"></div>  
         <div class="hand">
             <div class="hand-sec"></div>
         </div>
@@ -112,9 +112,7 @@
         <h2 id="deg180">6</h2>
         <h2 id="deg270">9</h2> -->
     </div>
-    <div class="tags">
-
-    </div>
+    
     <script>
         const hand = document.querySelector('.hand')
         const hand_m = document.querySelector('.hand-m')
@@ -135,27 +133,32 @@
         function showtime(){
             
             let now = new Date()
+
+            let ms = now.getMilliseconds()
             let s = now.getSeconds()
             let m = now.getMinutes()
             let h = now.getHours()
 
 
             info.innerHTML =now.toString().split(' ')[4]//電子鐘顯示
-            hand.style.transform = `rotate(${s*6}deg)`//秒針轉角度
+            // hand.style.transform = `rotate(${s*6}deg)`//秒針轉角度一秒一下
+
+            hand.style.transform = `rotate(${s*6+ms*.006}deg)`//秒針連續轉
             hand_m.style.transform = `rotate(${m*6}deg)`//分針轉角度
             hand_h.style.transform = `rotate(${h*30+m*0.5}deg)`//時針轉角度
             // console.log(hand);
 
-            setTimeout(showtime,1000)
+            // setTimeout(showtime,1000) 一秒動一次
+            setTimeout(showtime,30) //30毫秒動一次 效能較差
         }
 
         showtime()
        
-        //    for(let i=0;i<12;i++){
-        //         clock.innerHTML += `<div class="tag-g" style="transform: rotate(${i*30}deg);">
-        //             <div class="tag"></div>
-        //         </div>`;
-        //     }
+          //  for(let i=0;i<12;i++){
+          //       clock.innerHTML += `<div class="tag-g" style="transform: rotate(${i*30}deg);">
+          //           <div class="tag"></div>
+          //       </div>`;
+          //   }
 
      
 
