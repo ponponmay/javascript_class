@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+</head>
+<body>
+  <div class="container">
+    <div class="raw">
+        <div class="col-6">
+            <form>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+                 
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" name="password" class="form-control" id="password">
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" name="Check1" class="form-check-input" id="Check1">
+                  <label class="form-check-label" for="Check1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+
+              <!-- input要加上name=" "才會有存取資料傳出 
+                網址會顯示http://127.0.0.1:5500/63.form.html?email=dsfghjkl%3B&password=dfghjkl&Check1=on 
+                網址列的參數 query srting-->
+        </div>
+    </div>
+  </div>  
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

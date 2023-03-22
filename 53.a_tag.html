@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://yahoo.com.tw">yahoo</a>
+    <br>
+    <a href="javascript: console.log('假連結')">假連結</a>
+    <br>
+    <a href="#" onclick="console.log('123')">test</a> 
+    <!-- href 加# 讓頁面不會重新載入 -->
+    <br>
+    <a href="https://yahoo.com.tw" onclick="return false">yahoo2</a> 
+    <!-- onclick會先執行，return false代表取消原本預設的動作 -->
+    <br>
+    <a href="https://yahoo.com.tw" onclick="event.preventDefault()">yahoo3</a> 
+    <!-- onclick會先執行，event.preventDefault代表取消原本預設的動作 -->
+    <br>
+    <a href="https://yahoo.com.tw" onclick="return confirm('要去yahoo?')">yahoo4</a> 
+    <!-- onclick會先執行，event.preventDefault代表取消原本預設的動作 -->
+</body>
+</html>

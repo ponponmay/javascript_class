@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1" onclick="f(event)">123</button> 
+    <!-- 這邊的參數必須是寫event ，拿到後，會再把event回傳給f()，而自己定義的f()內的參數可以自己命名 -->
+    <button id="btn2" >456</button>
+
+    <script>
+        const btn1 = document.querySelector('#btn1')
+        const btn2 = document.querySelector('#btn2')
+
+        function f(e){
+            console.log(e);//展開event 裡面的current target 是null
+        }
+
+        btn2.onclick = function(e){
+            console.log(e);//展開event 裡面的current target 已經是null
+            console.log(e.target);
+            console.log(e.currentTarget);//跟e.target一樣，點擊當下拿到的target
+        }
+    </script>
+</body>
+</html>
